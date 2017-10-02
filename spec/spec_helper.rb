@@ -1,17 +1,16 @@
-# spec/spec_helper.rb
 require 'rack/test'
 require 'rspec'
+require 'json'
+require 'rack/test/body/json'
 
 ENV['RACK_ENV'] = 'test'
+ENV['ACCESS_TOKEN'] = '7c2432de2a737b5e40558332ed7e6507b3ca735b'
 
-require File.expand_path '../../my-app.rb', __FILE__
+require File.expand_path '../../app/controllers/routes.rb', __FILE__
 
 module RSpecMixin
   include Rack::Test::Methods
   def app() Sinatra::Application end
 end
 
-# For RSpec 2.x and 3.x
 RSpec.configure { |c| c.include RSpecMixin }
-# If you use RSpec 1.x you should use this instead:
-Spec::Runner.configure { |c| c.include RSpecMixin }

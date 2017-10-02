@@ -37,5 +37,5 @@ end
 group :test, :development do
   gem 'factory_girl'
   gem 'faker'
-
+  gem 'rack-test-body'
 end
